@@ -39,3 +39,4 @@ build
 
 # Data
 data/*.csv
+data/.*
