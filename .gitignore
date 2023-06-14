@@ -38,4 +38,4 @@ build
 .vscode
 
 # Data
-data
+data/*.csv
