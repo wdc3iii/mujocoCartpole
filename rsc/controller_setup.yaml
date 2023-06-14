@@ -1,0 +1,5 @@
+Controller:
+  type: "LQR"
+  Q: [1, 1, 1, 1]
+  R: [1]
+  controlRate: 1000

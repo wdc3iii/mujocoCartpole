@@ -1,0 +1,11 @@
+Simulator:
+  model_file_location: "../rsc/cartpole.xml"
+  logger_file_location: "../data/log.csv"
+  visual_update_rate: 60.0
+  x0: [0, 0, 0, 0]
+
+Perturbations:
+  pert_start: [3, 5]
+  pert_end: [3.15, 5.15]
+  pert_force: [0, 0]
+  pert_torque: [0, 1]
