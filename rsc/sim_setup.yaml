@@ -5,7 +5,7 @@ Simulator:
   x0: [0, 0, 0, 0]
 
 Perturbations:
-  pert_start: [3, 5]
-  pert_end: [3.15, 5.15]
-  pert_force: [0, 0]
+  pert_start: [1, 5]
+  pert_end: [1.15, 5.15]
+  pert_force: [1, 0]
   pert_torque: [0, 1]

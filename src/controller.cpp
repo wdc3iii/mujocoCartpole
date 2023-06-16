@@ -2,7 +2,7 @@
 #include "LQR.h"
 #include "yaml-cpp/yaml.h"
 #include "controller.h"
-
+#include <iostream>
 
 int main() {
     Controller* controller;
@@ -22,7 +22,7 @@ int main() {
 
     SocketServer socket(SocketServer::DEFAULT_PORT);
 
-    double RX_state[4] = {0, 0, 0, 0};
+    double RX_state[5] = {0, 0, 0, 0, 0};
     double TX_torque[1] = {0};
     Eigen::Vector4d state;
     double t = 0;
@@ -31,13 +31,11 @@ int main() {
         socket.readSocket(&RX_state, sizeof(RX_state));
         t = RX_state[0];
 
-        // if (t - t_prev >= control_dt) {
-            t_prev = t;
-            state << RX_state[1], RX_state[2], RX_state[3], RX_state[4];
-            TX_torque[0] = controller->getControl(state);
-        // }
+        t_prev = t;
+        state << RX_state[1], RX_state[2], RX_state[3], RX_state[4];
+        TX_torque[0] = controller->getControl(state);
+
         socket.writeSocket(&TX_torque, sizeof(TX_torque));
-        sleep(control_dt);
     }
     socket.closeSocket();
 }

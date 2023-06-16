@@ -23,10 +23,10 @@ set_property(TARGET mujoco PROPERTY IMPORTED_LOCATION ${CMAKE_INCLUDE_DIR}/lib/l
 
 include_directories(include)
 
-add_library(socket SHARED src/socket.cpp)
-add_library(utilities SHARED src/utilities.cpp)
-add_library(mujoco_interface SHARED src/mujoco_interface.cpp)
-add_library(lqr SHARED src/LQR.cpp)
+add_library(socket SHARED src/socket.cpp include/socket.h)
+add_library(utilities SHARED src/utilities.cpp include/utilities.h)
+add_library(mujoco_interface SHARED src/mujoco_interface.cpp include/mujoco_interface.h)
+add_library(lqr SHARED src/LQR.cpp include/LQR.h)
 
 add_executable(cartpole_sim src/sim.cpp)
 target_link_libraries(cartpole_sim PUBLIC socket)
